@@ -1,7 +1,60 @@
 #Fun Sorts.py
 #Idea is to take a bunch of funny sorts found on r/programmerhumor and make them real
 
+
 import random
+
+def check(self, nums:list, way: str) -> bool:
+    if way == "descending":
+        for i in range(len(nums)-1):
+            if nums[i] < nums[i+1]:
+                return False
+    elif way == "ascending":
+        for i in range(len(nums)-1):
+            if nums[i] > nums[i+1]:
+                return False
+    return True
+
+# O(1) Optimization Sort: Delete the whole list, an empty list is sorted list.
+#
+def optimization(nums:list) -> list:
+    newList = nums[:] #if just normal list = list, memory values are the same
+                # ^^^ allows splicing from beginning to end
+    newList.clear()
+    return newList
+
+# O(-1) Sort: Fuck off, I'm not sorting your list.
+#
+def no_sort(nums:list) -> list:
+    return nums
+
+# StalinSort: You iterate down the list of elements checking if they're in order. An element which is out of order is eliminated. At the end you have a sorted list.
+#
+def stalin_sort(nums:list, way: str) -> list:
+    newList = nums[:]
+    if way == "descending":
+        for i in range(len(newList)-1):
+            if newList[i] < newList[i+1]:
+                newList[i] = None
+    elif way == "ascending":
+        for i in range(len(newList)-1):
+            if newList[i] > newList[i+1]:
+                newList[i] = None
+    return newList
+
+# GenghisKhanSort: delete all elements except for the first, repopulate the list with successors of the first element.
+#
+
+def genghis_khan_sort(nums:list, way:str) -> list:
+    newList = nums[:1]
+    if way == "descending":
+        for i in range(99):
+            newList.append(newList[:-1]-1)
+    elif way == "ascending":
+        for i in range(99):
+            newList.append(newList[:-1]+1)
+    return newLis
+
 init = []
 for i in range(100):
     f = random.randint(0,100)
@@ -11,16 +64,22 @@ print("Basic list: " + str(init))
 # O(1) Optimization Sort: Delete the whole list, an empty list is sorted list.
 #
 print("Optimization Sort:")
-newList = init
-newList.clear()
-print(str(newList))
+best = optimization(init)
+print("This is the outcome of Optimization sort: " + str(best))
+
 # O(-1) Sort: Fuck off, I'm not sorting your list.
 #
+print("No sort: ")
+best = no_sort(init)
+print("This is the outcome of no sorting: " + str(best))
 
 # StalinSort: You iterate down the list of elements checking if they're in order. An element which is out of order is eliminated. At the end you have a sorted list.
 #
+
+
 # GenghisKhanSort: delete all elements except for the first, repopulate the list with successors of the first element.
 #
+
 # HitlerSort: pick the value that you like, declare it as the highest, and then delete all other values.
 #
 # AmishSort: Turn off computer, then you won't even need sorting.
