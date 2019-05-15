@@ -64,6 +64,12 @@ for i in range(100):
     init.append(f)
 print("Basic list: " + str(init))
 
+way = input("Sort ascending or descending? (a/d) ")
+if way == "a":
+    way = "ascending"
+elif way == "d":
+    way ="descending"
+
 # O(1) Optimization Sort: Delete the whole list, an empty list is sorted list.
 #
 print("Optimization Sort:")
