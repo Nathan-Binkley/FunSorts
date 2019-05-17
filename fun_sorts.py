@@ -2,7 +2,7 @@
 #Idea is to take a bunch of funny sorts found on r/programmerhumor and make them real
 
 
-import random
+import random, time
 
 def check(nums:list) -> bool:
 
@@ -29,9 +29,10 @@ def no_sort(nums:list) -> list:
 def stalin_sort(nums:list) -> list:
     newList = nums[:]
     print(newList)
-    while(not check(newList)):
+    nextList = []
+    while(not check(newList)-1):
         for i in range(1, len(newList)):
-            if newList[i] < newList[i-1]:
+            if newList[i] > newList[i+1]:
                 newList[i] = None
 
         nextList = []
@@ -76,6 +77,13 @@ def hitler_sort(nums:list) -> list:
 
 # AmishSort: Turn off computer, then you won't even need sorting.
 #
+def AmishSort(nums:list) -> list:
+    print("Why are you here? We're Amish. We don't use computers")
+    print("Well now we're gonna sort anyway")
+    print("Sorting")
+    for i in range(20):
+        print(".")
+        time.sleep(300)
 
 # Communist Sort: Wait for the list to sort itself. Act upset when it doesn't happen until a tyrannical dictatorship shows up and forces the list into sorted order.
 #
@@ -146,6 +154,10 @@ print()
 
 # AmishSort: Turn off computer, then you won't even need sorting.
 #
+print("Amish Sort: ")
+best = AmishSort(init)
+print("Amish sort doesn't sort. It just turns off your PC (if it actually worked the way I wanted it to).")
+print("Here's the outcome: " + str(best))
 
 # Communist Sort: Wait for the list to sort itself. Act upset when it doesn't happen until a tyrannical dictatorship shows up and forces the list into sorted order.
 #
