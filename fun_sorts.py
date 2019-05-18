@@ -83,7 +83,7 @@ def AmishSort(nums:list) -> list:
     print("Sorting")
     for i in range(20):
         print(".")
-        time.sleep(300)
+        time.sleep(1)
 
 # Communist Sort: Wait for the list to sort itself. Act upset when it doesn't happen until a tyrannical dictatorship shows up and forces the list into sorted order.
 #
