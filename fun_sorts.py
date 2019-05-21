@@ -30,19 +30,18 @@ def stalin_sort(nums:list) -> list:
     newList = nums[:]
     print(newList)
     nextList = []
-    while(not check(newList)-1):
-        for i in range(1, len(newList)):
+    while(not check(newList)):
+        for i in range(len(newList)-1):
             if newList[i] > newList[i+1]:
                 newList[i] = None
-
+        #print(nextList) #debugging
         nextList = []
         for i in newList:
             if i != None:
                 nextList.append(i)
-        print(nextList)
+        #print(nextList) #debugging
         newList = nextList[:]
-
-
+    print("end of loop")
     return nextList
 
 # GenghisKhanSort: delete all elements except for the first, repopulate the list with successors of the first element.
